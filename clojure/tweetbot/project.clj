@@ -4,7 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 twitter-api "0.7.8"]
+                 [twitter-api "0.7.8"]
+                 [clj-http "2.3.0"]
+                 [io.forward/yaml "1.0.5"]]
   :main ^:skip-aot tweetbot.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
+
