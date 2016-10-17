@@ -2,15 +2,14 @@ defmodule Tweetbot do
   import IO
 
   def main (args) do
-    configure ()
-    tweet (hd (args)
+    if (length args) > 0 and (hd args) != "" do
+      tweet (hd (args))
+    else
+      puts "Something went wrong"
+    end
   end
 
   def tweet (message) do
-
-  end
-
-  def configure () do
-    ExTwitter.configure ()
+    ExTwitter.update (message)
   end
 end
