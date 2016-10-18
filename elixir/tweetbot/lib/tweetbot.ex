@@ -18,6 +18,6 @@ defmodule Tweetbot do
     ExTwitter.configure ([consumer_key: config["consumer-key"],
                           consumer_secret: config["consumer-secret"],
                           access_token: config["access-token"],
-                          access_secret: config["access-secret"]])
+                          access_token_secret: config["access-secret"]])
   end
 end
