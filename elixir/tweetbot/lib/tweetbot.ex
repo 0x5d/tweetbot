@@ -13,11 +13,11 @@ defmodule Tweetbot do
   end
 
   def configure () do
-    path = File.cwd! |> Path.join("config.yml")
+    path = System.user_home! |> Path.join("tweetbot-config.yml")
     config = YamlElixir.read_from_file path
     ExTwitter.configure ([consumer_key: config["consumer-key"],
                           consumer_secret: config["consumer-secret"],
                           access_token: config["access-token"],
-                          access_token_secret: config["access-secret"]])
+                          access_token_secret: config["access-token-secret"]])
   end
 end
