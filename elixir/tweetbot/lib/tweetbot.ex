@@ -13,7 +13,7 @@ defmodule Tweetbot do
   end
 
   def configure () do
-    path = System.user_home! |> Path.join("tweetbot-config.yml")
+    path = System.user_home! |> Path.join(".tweetbot")
     config = YamlElixir.read_from_file path
     ExTwitter.configure ([consumer_key: config["consumer-key"],
                           consumer_secret: config["consumer-secret"],
