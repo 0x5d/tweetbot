@@ -4,8 +4,7 @@
    [twitter.oauth]
    [twitter.api.restful])
   (:require
-   [yaml.core :as yaml]
-   [clojure.string :as string]))
+   [yaml.core :as yaml]))
 
 (defn load-config
   []
@@ -13,11 +12,11 @@
 
 (defn get-creds
   []
-  (def config (load-config))
-  (make-oauth-creds (get config "consumer-key")
-                    (get config "consumer-secret")
-                    (get config "access-token")
-                    (get config "access-token-secret")))
+  (let [config (load-config)]
+    (make-oauth-creds (get config "consumer-key")
+                      (get config "consumer-secret")
+                      (get config "access-token")
+                      (get config "access-token-secret"))))
 
 (defn tweet
   [message, creds]
@@ -27,7 +26,6 @@
 (defn -main
   "Posts a status update to twitter"
   [& args]
-  (if (not (string/blank? (first args)))
-    (tweet (first args) (get-creds))
+  (if-let [first-arg (first args)]
+    (tweet first-arg (get-creds))
     (println "Sorry, something happened")))
-  
