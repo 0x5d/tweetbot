@@ -15,7 +15,7 @@ defmodule Tweetbot.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :extwitter]]
+    [applications: [:logger, :yaml_elixir, :extwitter]]
   end
 
   # Dependencies can be Hex packages:
@@ -30,7 +30,8 @@ defmodule Tweetbot.Mixfile do
   defp deps do
     [
       {:oauth, github: "tim/erlang-oauth"},
-      {:extwitter, "~> 0.6"}
+      {:extwitter, "~> 0.6"},
+      { :yaml_elixir, "~> 1.2.1" }
     ]
   end
 end
